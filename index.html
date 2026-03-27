@@ -1,0 +1,1852 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Al-Waha Restaurant — An elegant oasis of authentic Middle Eastern cuisine. Experience the finest flavours of the Levant in a luxurious setting.">
+<meta name="keywords" content="Al-Waha restaurant, Middle Eastern food, Arabic cuisine, fine dining, oasis restaurant">
+<title>Al-Waha | الواحة — Restaurant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cinzel:wght@400;500;600&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-pale: #F5E8C0;
+    --gold-dark: #8B6914;
+    --cream: #FAF6EC;
+    --cream-dark: #F0E8D0;
+    --ivory: #FDFAF3;
+    --sand: #E8D9B0;
+    --brown: #3D2B1A;
+    --brown-mid: #6B4A2A;
+    --text-dark: #2A1F0E;
+    --text-mid: #5C4225;
+    --text-light: #9B7E5A;
+    --white: #FFFFFF;
+    --palm-green: #2D5016;
+    --palm-mid: #4A7C25;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Raleway', sans-serif;
+    background: var(--ivory);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* NAVIGATION */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 0 2rem;
+    background: rgba(253, 250, 243, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    transition: all 0.3s ease;
+  }
+
+  nav.scrolled {
+    background: rgba(253, 250, 243, 0.98);
+    box-shadow: 0 2px 30px rgba(139, 105, 20, 0.12);
+  }
+
+  .nav-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--gold-dark);
+    letter-spacing: 2px;
+    text-decoration: none;
+  }
+
+  .nav-logo span {
+    font-family: 'Noto Naskh Arabic', serif;
+    font-size: 1.1rem;
+    color: var(--text-mid);
+    margin-left: 8px;
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--text-mid);
+    text-decoration: none;
+    transition: color 0.3s;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--gold);
+    transition: width 0.3s ease;
+  }
+
+  .nav-links a:hover { color: var(--gold-dark); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-reserve {
+    background: var(--gold);
+    color: var(--white) !important;
+    padding: 0.6rem 1.4rem;
+    border-radius: 1px;
+    transition: background 0.3s !important;
+  }
+
+  .nav-reserve::after { display: none !important; }
+  .nav-reserve:hover { background: var(--gold-dark) !important; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 5px;
+  }
+
+  .hamburger span {
+    width: 24px;
+    height: 1.5px;
+    background: var(--gold-dark);
+    transition: all 0.3s;
+    display: block;
+  }
+
+  /* HERO */
+  #home {
+    height: 100vh;
+    min-height: 700px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--text-dark);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 80%, rgba(201, 168, 76, 0.18) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 50%, rgba(201, 168, 76, 0.08) 0%, transparent 50%),
+      linear-gradient(180deg, #1A0F05 0%, #2D1D08 40%, #1A0F05 100%);
+  }
+
+  /* Desert landscape SVG background */
+  .hero-landscape {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 65%;
+    opacity: 0.6;
+  }
+
+  /* Stars */
+  .stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    overflow: hidden;
+  }
+
+  .star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: rgba(232, 201, 122, 0.7);
+    animation: twinkle 3s infinite;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.3); }
+  }
+
+  .hero-content {
+    text-align: center;
+    z-index: 10;
+    padding: 2rem;
+    animation: fadeUp 1.2s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-tagline {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 1s 0.3s forwards;
+  }
+
+  .hero-name-en {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(4rem, 12vw, 8rem);
+    font-weight: 400;
+    color: var(--cream);
+    letter-spacing: 6px;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+    opacity: 0;
+    animation: fadeUp 1s 0.5s forwards;
+  }
+
+  .hero-name-ar {
+    font-family: 'Noto Naskh Arabic', serif;
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    font-weight: 600;
+    color: var(--gold-light);
+    direction: rtl;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 1s 0.7s forwards;
+  }
+
+  .hero-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 1s 0.9s forwards;
+  }
+
+  .hero-divider-line {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .hero-ornament {
+    color: var(--gold);
+    font-size: 1.4rem;
+  }
+
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    font-style: italic;
+    font-weight: 300;
+    color: rgba(245, 232, 192, 0.7);
+    letter-spacing: 1px;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeUp 1s 1.1s forwards;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 1s 1.3s forwards;
+  }
+
+  .btn-primary {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--text-dark);
+    background: var(--gold);
+    padding: 1rem 2.5rem;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--cream);
+    background: transparent;
+    padding: 1rem 2.5rem;
+    border: 1px solid rgba(201, 168, 76, 0.5);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-block;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--gold);
+    color: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    animation: fadeUp 1s 1.8s forwards;
+    cursor: pointer;
+  }
+
+  .scroll-indicator span {
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(201, 168, 76, 0.6);
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s infinite;
+  }
+
+  @keyframes scrollPulse {
+    0% { opacity: 0.3; transform: scaleY(0.8); }
+    50% { opacity: 1; transform: scaleY(1); }
+    100% { opacity: 0.3; transform: scaleY(0.8); }
+  }
+
+  /* SECTION STYLES */
+  section { padding: 7rem 2rem; }
+
+  .section-label {
+    font-size: 0.65rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 1rem;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+  }
+
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    color: var(--text-dark);
+    text-align: center;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+  }
+
+  .section-title-ar {
+    font-family: 'Noto Naskh Arabic', serif;
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    color: var(--text-mid);
+    text-align: center;
+    margin-bottom: 2rem;
+    direction: rtl;
+  }
+
+  .section-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .section-divider-line {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .ornament-diamond {
+    width: 8px;
+    height: 8px;
+    border: 1px solid var(--gold);
+    transform: rotate(45deg);
+    background: var(--gold-pale);
+  }
+
+  /* ABOUT */
+  #about {
+    background: var(--ivory);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #about::before {
+    content: 'الواحة';
+    position: absolute;
+    font-family: 'Noto Naskh Arabic', serif;
+    font-size: 20rem;
+    color: rgba(201, 168, 76, 0.04);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .about-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .about-image-frame {
+    position: relative;
+  }
+
+  .about-image-inner {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: linear-gradient(145deg, var(--sand), var(--cream-dark));
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-image-border {
+    position: absolute;
+    inset: -12px;
+    border: 1px solid var(--gold);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .about-image-border-inner {
+    position: absolute;
+    inset: -6px;
+    border: 1px solid rgba(201, 168, 76, 0.3);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .about-badge {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 110px;
+    height: 110px;
+    background: var(--gold);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+
+  .about-badge-num {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .about-badge-text {
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    text-align: center;
+    margin-top: 4px;
+  }
+
+  .about-text { position: relative; }
+
+  .about-text p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: var(--text-mid);
+    margin-bottom: 1.5rem;
+  }
+
+  .about-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .about-feature {
+    display: flex;
+    gap: 0.8rem;
+    align-items: flex-start;
+  }
+
+  .feature-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--gold-pale);
+    border: 1px solid rgba(201, 168, 76, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .feature-icon svg { width: 14px; height: 14px; stroke: var(--gold-dark); fill: none; stroke-width: 1.5; }
+
+  .feature-text h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: var(--text-dark);
+    margin-bottom: 3px;
+  }
+
+  .feature-text p {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* MENU */
+  #menu {
+    background: var(--text-dark);
+    color: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #menu::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 0% 50%, rgba(201, 168, 76, 0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 100% 50%, rgba(201, 168, 76, 0.06) 0%, transparent 50%);
+  }
+
+  #menu .section-title { color: var(--cream); }
+  #menu .section-title-ar { color: var(--gold-light); }
+  #menu .section-label { color: var(--gold-light); }
+
+  .menu-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 3.5rem;
+    flex-wrap: wrap;
+    border: 1px solid rgba(201, 168, 76, 0.2);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3.5rem;
+  }
+
+  .menu-tab {
+    flex: 1;
+    min-width: 120px;
+    padding: 0.8rem 1.5rem;
+    background: transparent;
+    border: none;
+    border-right: 1px solid rgba(201, 168, 76, 0.2);
+    color: rgba(245, 232, 192, 0.6);
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .menu-tab:last-child { border-right: none; }
+  .menu-tab.active { background: var(--gold); color: var(--text-dark); }
+  .menu-tab:hover:not(.active) { color: var(--gold-light); background: rgba(201, 168, 76, 0.05); }
+
+  .menu-grid {
+    max-width: 950px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    display: none;
+  }
+
+  .menu-grid.active { display: grid; }
+
+  .menu-item {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+    border-right: 1px solid rgba(201, 168, 76, 0.1);
+    transition: background 0.3s;
+  }
+
+  .menu-item:nth-child(even) { border-right: none; }
+  .menu-item:hover { background: rgba(201, 168, 76, 0.04); }
+
+  .menu-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.4rem;
+  }
+
+  .menu-item-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--cream);
+  }
+
+  .menu-item-name-ar {
+    font-family: 'Noto Naskh Arabic', serif;
+    font-size: 0.85rem;
+    color: var(--gold-light);
+    direction: rtl;
+    margin-bottom: 0.3rem;
+  }
+
+  .menu-item-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: var(--gold);
+    white-space: nowrap;
+    margin-left: 1rem;
+  }
+
+  .menu-item-desc {
+    font-size: 0.8rem;
+    color: rgba(245, 232, 192, 0.5);
+    line-height: 1.6;
+  }
+
+  .menu-note {
+    text-align: center;
+    margin-top: 2.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: rgba(245, 232, 192, 0.4);
+    font-size: 0.95rem;
+  }
+
+  /* GALLERY */
+  #gallery {
+    background: var(--cream);
+    padding: 7rem 0;
+  }
+
+  #gallery .section-label,
+  #gallery .section-title,
+  #gallery .section-title-ar { padding: 0 2rem; }
+
+  .gallery-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 12px;
+  }
+
+  .gallery-item {
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    background: var(--sand);
+  }
+
+  .gallery-item:first-child {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .gallery-item-inner {
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+    transition: transform 0.6s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .gallery-item:first-child .gallery-item-inner { min-height: 500px; }
+
+  .gallery-item:hover .gallery-item-inner { transform: scale(1.04); }
+
+  .gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(42, 31, 14, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+  }
+
+  .gallery-item:hover .gallery-overlay { background: rgba(42, 31, 14, 0.3); }
+
+  .gallery-plus {
+    color: var(--cream);
+    font-size: 2rem;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.3s;
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .gallery-item:hover .gallery-plus { opacity: 1; transform: scale(1); }
+
+  /* Placeholder visual for gallery items */
+  .gallery-visual {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+  }
+
+  /* RESERVATIONS */
+  #reservations {
+    background: linear-gradient(135deg, #2A1F0E 0%, #1A0F05 50%, #2D1D08 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #reservations::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(201, 168, 76, 0.12) 0%, transparent 60%);
+  }
+
+  #reservations .section-label { color: var(--gold-light); }
+  #reservations .section-title { color: var(--cream); }
+  #reservations .section-title-ar { color: var(--gold-light); }
+
+  .reservation-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-group.full { grid-column: span 2; }
+
+  .form-group label {
+    font-size: 0.65rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(245, 232, 192, 0.6);
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(201, 168, 76, 0.25);
+    color: var(--cream);
+    padding: 0.85rem 1rem;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.3s;
+    width: 100%;
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: rgba(245, 232, 192, 0.3); }
+
+  .form-group select { cursor: pointer; }
+  .form-group select option { background: #2A1F0E; color: var(--cream); }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold);
+    background: rgba(201, 168, 76, 0.05);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 100px; }
+
+  .form-submit {
+    width: 100%;
+    padding: 1.1rem;
+    background: var(--gold);
+    color: var(--text-dark);
+    border: none;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 0.5rem;
+  }
+
+  .form-submit:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  .form-note {
+    text-align: center;
+    margin-top: 1.2rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: rgba(245, 232, 192, 0.4);
+    font-size: 0.9rem;
+  }
+
+  /* CONTACT */
+  #contact {
+    background: var(--ivory);
+    position: relative;
+  }
+
+  .contact-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .contact-card {
+    text-align: center;
+    padding: 3rem 2rem;
+    border: 1px solid rgba(201, 168, 76, 0.2);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+
+  .contact-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
+
+  .contact-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(201, 168, 76, 0.1); }
+  .contact-card:hover::before { transform: scaleX(1); }
+
+  .contact-icon {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 1.2rem;
+    background: var(--gold-pale);
+    border: 1px solid rgba(201, 168, 76, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-icon svg { width: 22px; height: 22px; stroke: var(--gold-dark); fill: none; stroke-width: 1.5; }
+
+  .contact-card h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    color: var(--gold-dark);
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+  }
+
+  .contact-card p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* SOCIAL */
+  .social-strip {
+    background: var(--cream-dark);
+    padding: 4rem 2rem;
+    text-align: center;
+    border-top: 1px solid rgba(201, 168, 76, 0.15);
+  }
+
+  .social-label {
+    font-size: 0.65rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .social-link {
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(201, 168, 76, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-mid);
+    text-decoration: none;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+  }
+
+  .social-link:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--white);
+    transform: translateY(-3px);
+  }
+
+  .social-link svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+
+  /* INSTAGRAM FEED PLACEHOLDER */
+  .instagram-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 4px;
+    max-width: 800px;
+    margin: 1.5rem auto 0;
+  }
+
+  .insta-item {
+    aspect-ratio: 1;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--brown);
+    padding: 3rem 2rem 2rem;
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+    margin-bottom: 2rem;
+  }
+
+  .footer-brand {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    color: var(--cream);
+    letter-spacing: 3px;
+    margin-bottom: 0.3rem;
+  }
+
+  .footer-brand-ar {
+    font-family: 'Noto Naskh Arabic', serif;
+    font-size: 1.1rem;
+    color: var(--gold-light);
+    direction: rtl;
+    margin-bottom: 1rem;
+  }
+
+  .footer-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    color: rgba(245, 232, 192, 0.5);
+    line-height: 1.7;
+  }
+
+  .footer-col h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  .footer-col ul { list-style: none; }
+
+  .footer-col li {
+    margin-bottom: 0.6rem;
+    font-size: 0.85rem;
+    color: rgba(245, 232, 192, 0.5);
+  }
+
+  .footer-col a {
+    color: rgba(245, 232, 192, 0.5);
+    text-decoration: none;
+    transition: color 0.3s;
+    font-family: 'Raleway', sans-serif;
+  }
+
+  .footer-col a:hover { color: var(--gold-light); }
+
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    color: rgba(245, 232, 192, 0.3);
+  }
+
+  /* MOBILE NAV */
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    inset: 70px 0 0;
+    background: var(--ivory);
+    z-index: 999;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1rem;
+    border-top: 1px solid rgba(201, 168, 76, 0.2);
+  }
+
+  .mobile-nav.open { display: flex; }
+
+  .mobile-nav a {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-mid);
+    text-decoration: none;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+    transition: color 0.3s;
+  }
+
+  .mobile-nav a:hover { color: var(--gold-dark); }
+
+  /* ANIMATIONS */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* SUCCESS MESSAGE */
+  .success-message {
+    display: none;
+    background: rgba(201, 168, 76, 0.1);
+    border: 1px solid var(--gold);
+    padding: 1rem;
+    text-align: center;
+    color: var(--gold-light);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .about-image-frame { max-width: 450px; margin: 0 auto; }
+    .menu-grid { grid-template-columns: 1fr; }
+    .menu-item:nth-child(even) { border-right: 1px solid rgba(201, 168, 76, 0.1); }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-item:first-child { grid-column: span 2; grid-row: span 1; }
+    .gallery-item:first-child .gallery-item-inner { min-height: 300px; }
+    .contact-grid { grid-template-columns: 1fr; max-width: 400px; }
+    .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .instagram-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @media (max-width: 650px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .form-grid { grid-template-columns: 1fr; }
+    .form-group.full { grid-column: span 1; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .gallery-item:first-child { grid-column: span 1; }
+    .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+    .about-features { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="navbar">
+  <a href="#home" class="nav-logo">Al-Waha <span>الواحة</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">Our Story</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#reservations" class="nav-reserve">Reserve</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#about" onclick="toggleMenu()">Our Story</a>
+  <a href="#menu" onclick="toggleMenu()">Menu</a>
+  <a href="#gallery" onclick="toggleMenu()">Gallery</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+  <a href="#reservations" onclick="toggleMenu()">Reserve a Table</a>
+</div>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <!-- Stars -->
+  <div class="stars" id="stars"></div>
+  <!-- Landscape SVG -->
+  <svg class="hero-landscape" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+    <!-- Desert dunes -->
+    <ellipse cx="200" cy="380" rx="400" ry="80" fill="rgba(139,105,20,0.25)"/>
+    <ellipse cx="1200" cy="390" rx="350" ry="70" fill="rgba(139,105,20,0.2)"/>
+    <ellipse cx="720" cy="400" rx="600" ry="60" fill="rgba(107,74,42,0.3)"/>
+    <!-- Left palm tree -->
+    <line x1="120" y1="400" x2="130" y2="200" stroke="rgba(45,80,22,0.8)" stroke-width="10" stroke-linecap="round"/>
+    <line x1="130" y1="200" x2="100" y2="230" stroke="rgba(45,80,22,0.7)" stroke-width="2"/>
+    <line x1="130" y1="200" x2="80" y2="210" stroke="rgba(45,80,22,0.7)" stroke-width="2"/>
+    <line x1="130" y1="200" x2="60" y2="195" stroke="rgba(45,80,22,0.7)" stroke-width="2"/>
+    <line x1="130" y1="200" x2="160" y2="185" stroke="rgba(45,80,22,0.7)" stroke-width="2"/>
+    <line x1="130" y1="200" x2="180" y2="200" stroke="rgba(45,80,22,0.7)" stroke-width="2"/>
+    <line x1="130" y1="200" x2="155" y2="215" stroke="rgba(45,80,22,0.7)" stroke-width="2"/>
+    <!-- Palm leaf shapes left -->
+    <ellipse cx="90" cy="225" rx="35" ry="8" fill="rgba(74,124,37,0.6)" transform="rotate(-15 90 225)"/>
+    <ellipse cx="70" cy="210" rx="32" ry="7" fill="rgba(74,124,37,0.55)" transform="rotate(-5 70 210)"/>
+    <ellipse cx="60" cy="196" rx="30" ry="7" fill="rgba(45,80,22,0.6)" transform="rotate(5 60 196)"/>
+    <ellipse cx="165" cy="185" rx="28" ry="6" fill="rgba(74,124,37,0.5)" transform="rotate(-20 165 185)"/>
+    <ellipse cx="183" cy="200" rx="26" ry="6" fill="rgba(45,80,22,0.5)" transform="rotate(-30 183 200)"/>
+    <!-- Right palm tree -->
+    <line x1="1300" y1="400" x2="1290" y2="210" stroke="rgba(45,80,22,0.8)" stroke-width="10" stroke-linecap="round"/>
+    <line x1="1290" y1="210" x2="1260" y2="190" stroke="rgba(45,80,22,0.7)" stroke-width="2"/>
+    <line x1="1290" y1="210" x2="1240" y2="200" stroke="rgba(45,80,22,0.7)" stroke-width="2"/>
+    <line x1="1290" y1="210" x2="1320" y2="190" stroke="rgba(45,80,22,0.7)" stroke-width="2"/>
+    <line x1="1290" y1="210" x2="1350" y2="205" stroke="rgba(45,80,22,0.7)" stroke-width="2"/>
+    <line x1="1290" y1="210" x2="1360" y2="215" stroke="rgba(45,80,22,0.7)" stroke-width="2"/>
+    <ellipse cx="1250" cy="190" rx="32" ry="7" fill="rgba(74,124,37,0.6)" transform="rotate(10 1250 190)"/>
+    <ellipse cx="1235" cy="202" rx="30" ry="7" fill="rgba(74,124,37,0.55)" transform="rotate(5 1235 202)"/>
+    <ellipse cx="1325" cy="188" rx="30" ry="6" fill="rgba(45,80,22,0.6)" transform="rotate(-10 1325 188)"/>
+    <ellipse cx="1355" cy="205" rx="28" ry="6" fill="rgba(74,124,37,0.5)" transform="rotate(-20 1355 205)"/>
+    <!-- Center small palm -->
+    <line x1="720" y1="400" x2="715" y2="310" stroke="rgba(45,80,22,0.4)" stroke-width="6" stroke-linecap="round"/>
+    <ellipse cx="695" cy="308" rx="22" ry="5" fill="rgba(74,124,37,0.3)" transform="rotate(10 695 308)"/>
+    <ellipse cx="740" cy="310" rx="22" ry="5" fill="rgba(74,124,37,0.3)" transform="rotate(-10 740 310)"/>
+    <!-- Moon/light glow -->
+    <circle cx="720" cy="80" r="45" fill="rgba(201, 168, 76, 0.08)"/>
+    <circle cx="720" cy="80" r="30" fill="rgba(201, 168, 76, 0.1)"/>
+    <!-- Water reflection / oasis pond -->
+    <ellipse cx="720" cy="395" rx="80" ry="12" fill="rgba(201, 168, 76, 0.12)"/>
+  </svg>
+
+  <div class="hero-content">
+    <p class="hero-tagline">An Elegant Oasis of Flavour</p>
+    <h1 class="hero-name-en">Al-Waha</h1>
+    <p class="hero-name-ar">الواحة</p>
+    <div class="hero-divider">
+      <div class="hero-divider-line"></div>
+      <span class="hero-ornament">✦</span>
+      <div class="hero-divider-line"></div>
+    </div>
+    <p class="hero-subtitle">Where the desert meets the table — authentic Levantine cuisine<br>in the heart of the city</p>
+    <div class="hero-buttons">
+      <a href="#reservations" class="btn-primary">Reserve a Table</a>
+      <a href="#menu" class="btn-secondary">View Menu</a>
+    </div>
+  </div>
+
+  <div class="scroll-indicator" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+    <span>Explore</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label reveal">Our Story</div>
+  <h2 class="section-title reveal">A Sanctuary of Flavour</h2>
+  <p class="section-title-ar reveal">ملجأ النكهات الأصيلة</p>
+  <div class="section-divider reveal">
+    <div class="section-divider-line"></div>
+    <div class="ornament-diamond"></div>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-image-frame reveal">
+      <div class="about-image-inner">
+        <svg width="100%" height="100%" viewBox="0 0 400 530" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <rect width="400" height="530" fill="#E8D9B0"/>
+          <!-- Arch / interior scene -->
+          <rect x="60" y="40" width="280" height="420" rx="140" ry="20" fill="#D4C090"/>
+          <path d="M60 180 Q200 40 340 180 L340 460 Q340 490 310 490 L90 490 Q60 490 60 460 Z" fill="#C9B070"/>
+          <!-- Window light -->
+          <ellipse cx="200" cy="160" rx="80" ry="100" fill="rgba(201, 168, 76, 0.3)"/>
+          <!-- Table setting -->
+          <ellipse cx="200" cy="420" rx="100" ry="20" fill="rgba(107,74,42,0.4)"/>
+          <rect x="150" y="330" width="100" height="90" rx="4" fill="rgba(139,105,20,0.3)"/>
+          <!-- Candle -->
+          <rect x="195" y="310" width="10" height="30" rx="2" fill="rgba(245,232,192,0.8)"/>
+          <ellipse cx="200" cy="310" rx="5" ry="8" fill="rgba(201, 168, 76, 0.7)"/>
+          <!-- Arabic geometric pattern overlay -->
+          <path d="M120 80 L140 100 L120 120 L100 100 Z" fill="none" stroke="rgba(139,105,20,0.3)" stroke-width="1"/>
+          <path d="M270 80 L290 100 L270 120 L250 100 Z" fill="none" stroke="rgba(139,105,20,0.3)" stroke-width="1"/>
+          <text x="200" y="240" text-anchor="middle" font-family="'Noto Naskh Arabic'" font-size="48" fill="rgba(139,105,20,0.25)" direction="rtl">الواحة</text>
+        </svg>
+        <div class="about-image-border"></div>
+        <div class="about-image-border-inner"></div>
+        <div class="about-badge">
+          <div class="about-badge-num">15</div>
+          <div class="about-badge-text">Years of<br>Excellence</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-text reveal">
+      <p>Al-Waha — meaning <em>The Oasis</em> in Arabic — was born from a dream to bring the warmth, generosity and extraordinary cuisine of the Levant to the heart of the city. Like an oasis in the desert, we offer a place of refuge, beauty and nourishment.</p>
+      <p>Our chefs craft every dish from recipes passed down through generations, using the finest imported spices, slow-roasted meats and hand-rolled pastries. Every visit is a journey — from the mezze to the last spoonful of umm ali, we invite you to experience the soul of Arabic hospitality.</p>
+      <p>The décor draws from the golden light of desert evenings, with handcrafted lanterns, mosaic accents and the gentle sound of oud filling the air.</p>
+
+      <div class="about-features">
+        <div class="about-feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7zm0 9a2 2 0 100-4 2 2 0 000 4z"/></svg>
+          </div>
+          <div class="feature-text">
+            <h4>Prime Location</h4>
+            <p>Centrally located with private dining available</p>
+          </div>
+        </div>
+        <div class="about-feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="feature-text">
+            <h4>Halal Certified</h4>
+            <p>100% halal kitchen, certified annually</p>
+          </div>
+        </div>
+        <div class="about-feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="feature-text">
+            <h4>Open Daily</h4>
+            <p>Lunch & dinner, 12pm – 11pm</p>
+          </div>
+        </div>
+        <div class="about-feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div class="feature-text">
+            <h4>Private Events</h4>
+            <p>Bespoke dining events for all occasions</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="section-label reveal">Culinary Journey</div>
+  <h2 class="section-title reveal">Our Menu</h2>
+  <p class="section-title-ar reveal">قائمة الطعام</p>
+  <div class="section-divider reveal">
+    <div class="section-divider-line" style="background:linear-gradient(90deg,transparent,rgba(201,168,76,0.4),transparent)"></div>
+    <div class="ornament-diamond" style="border-color:rgba(201,168,76,0.5);background:rgba(201,168,76,0.1)"></div>
+    <div class="section-divider-line" style="background:linear-gradient(90deg,transparent,rgba(201,168,76,0.4),transparent)"></div>
+  </div>
+
+  <div style="max-width:950px;margin:0 auto;position:relative;z-index:1;">
+    <div class="menu-tabs reveal">
+      <button class="menu-tab active" onclick="showMenu('mezze',this)">Mezze</button>
+      <button class="menu-tab" onclick="showMenu('mains',this)">Mains</button>
+      <button class="menu-tab" onclick="showMenu('grills',this)">Grills</button>
+      <button class="menu-tab" onclick="showMenu('desserts',this)">Desserts</button>
+    </div>
+
+    <!-- Mezze -->
+    <div class="menu-grid active reveal" id="menu-mezze">
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name">Hummus Beiruti</span><span class="menu-item-price">£8</span></div>
+        <div class="menu-item-name-ar">حمص بيروتي</div>
+        <div class="menu-item-desc">Silky chickpea purée, tahini, lemon, topped with warm olive oil & sumac</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name">Fattoush Salad</span><span class="menu-item-price">£9</span></div>
+        <div class="menu-item-name-ar">فتوش</div>
+        <div class="menu-item-desc">Seasonal vegetables, crispy bread, pomegranate molasses dressing, fresh herbs</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name">Warak Dawali</span><span class="menu-item-price">£11</span></div>
+        <div class="menu-item-name-ar">ورق دوالي</div>
+        <div class="menu-item-desc">Vine leaves stuffed with spiced rice, herbs & lemon, served warm</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name">Kibbeh Nabilsiyyeh</span><span class="menu-item-price">£13</span></div>
+        <div class="menu-item-name-ar">كبة نابلسية</div>
+        <div class="menu-item-desc">Hand-formed bulgur shells, spiced lamb filling, pine nuts, served with yoghurt</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name">Mouttabal</span><span class="menu-item-price">£8</span></div>
+        <div class="menu-item-name-ar">متبل</div>
+        <div class="menu-item-desc">Flame-roasted aubergine, tahini, garlic, pomegranate seeds, fresh mint</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name">Mixed Mezze</span><span class="menu-item-price">£28</span></div>
+        <div class="menu-item-name-ar">مزة مشكلة</div>
+        <div class="menu-item-desc">A curated selection of our finest cold & hot mezze for two to share</div>
+      </div>
+    </div>
+
+    <!-- Mains -->
+    <div class="menu-grid" id="menu-mains">
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name">Lamb Ouzi</span><span class="menu-item-price">£28</span></div>
+        <div class="menu-item-name-ar">أوزي لحم</div>
+        <div class="menu-item-desc">Slow-braised whole shoulder of lamb, fragrant rice, toasted nuts & raisins</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name">Maqlouba</span><span class="menu-item-price">£22</span></div>
+        <div class="menu-item-name-ar">مقلوبة</div>
+        <div class="menu-item-desc">The upside-down Palestinian classic — layered rice, aubergine, cauliflower, lamb</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name">Sayyadieh</span><span class="menu-item-price">£24</span></div>
+        <div class="menu-item-name-ar">صيادية</div>
+        <div class="menu-item-desc">Coastal spiced fish over caramelised onion rice with tahini & toasted pine nuts</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name">Chicken Musakhan</span><span class="menu-item-price">£21</span></div>
+        <div class="menu-item-name-ar">مسخن</div>
+        <div class="menu-item-desc">Sumac-roasted chicken, caramelised onions, olive oil, taboon flatbread</div>
+      </div>
+    </div>
+
+    <!-- Grills -->
+    <div class="menu-grid" id="menu-grills">
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name">Mixed Grill Platter</span><span class="menu-item-price">£38</span></div>
+        <div class="menu-item-name-ar">مشاوي مشكلة</div>
+        <div class="menu-item-desc">Lamb kofta, shish tawook, lamb chops, grilled halloumi, served with bread & dips</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name">Lamb Kofta</span><span class="menu-item-price">£22</span></div>
+        <div class="menu-item-name-ar">كفتة لحم</div>
+        <div class="menu-item-desc">Charcoal-grilled minced lamb, onion & parsley, with rice & grilled tomato</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name">Shish Tawook</span><span class="menu-item-price">£21</span></div>
+        <div class="menu-item-name-ar">شيش طاووق</div>
+        <div class="menu-item-desc">Marinated chicken skewers, toum, pickles, warm flatbread</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name">Lamb Chops</span><span class="menu-item-price">£32</span></div>
+        <div class="menu-item-name-ar">ضلوع خروف</div>
+        <div class="menu-item-desc">Herb-marinated rack of lamb, slow-grilled to perfection, served with freekeh</div>
+      </div>
+    </div>
+
+    <!-- Desserts -->
+    <div class="menu-grid" id="menu-desserts">
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name">Umm Ali</span><span class="menu-item-price">£9</span></div>
+        <div class="menu-item-name-ar">أم علي</div>
+        <div class="menu-item-desc">Egypt's beloved bread pudding, cream, rose water, pistachios, served warm</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name">Kunafa Nabulsiyeh</span><span class="menu-item-price">£10</span></div>
+        <div class="menu-item-name-ar">كنافة نابلسية</div>
+        <div class="menu-item-desc">Classic cheese-filled pastry, crisp orange dough, fragrant rose syrup</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name">Baklawa Selection</span><span class="menu-item-price">£8</span></div>
+        <div class="menu-item-name-ar">بقلاوة</div>
+        <div class="menu-item-desc">Assorted hand-made pastries, pistachio, walnut, honey & orange blossom</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-header"><span class="menu-item-name">Qatayef</span><span class="menu-item-price">£9</span></div>
+        <div class="menu-item-name-ar">قطايف</div>
+        <div class="menu-item-desc">Stuffed Arabic pancakes, cream & walnut, lightly fried, drizzled with syrup</div>
+      </div>
+    </div>
+
+    <p class="menu-note reveal">All dishes are freshly prepared. Allergen information available on request. ✦ Our kitchen is fully halal certified.</p>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-label reveal">Visual Journey</div>
+  <h2 class="section-title reveal">Gallery</h2>
+  <p class="section-title-ar reveal">معرض الصور</p>
+  <div class="section-divider reveal">
+    <div class="section-divider-line"></div>
+    <div class="ornament-diamond"></div>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <div class="gallery-grid reveal">
+    <!-- Large feature item -->
+    <div class="gallery-item">
+      <div class="gallery-item-inner">
+        <svg width="100%" height="100%" viewBox="0 0 600 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <rect width="600" height="500" fill="#2D1D08"/>
+          <ellipse cx="300" cy="250" rx="250" ry="200" fill="rgba(201,168,76,0.08)"/>
+          <!-- Table scene -->
+          <ellipse cx="300" cy="420" rx="200" ry="30" fill="rgba(107,74,42,0.6)"/>
+          <rect x="210" y="300" width="180" height="120" rx="4" fill="#3D2B1A"/>
+          <!-- Plates -->
+          <ellipse cx="255" cy="355" rx="35" ry="30" fill="#5C4225"/>
+          <ellipse cx="255" cy="355" rx="28" ry="24" fill="#8B6914" opacity="0.7"/>
+          <ellipse cx="345" cy="355" rx="35" ry="30" fill="#5C4225"/>
+          <ellipse cx="345" cy="355" rx="28" ry="24" fill="#C9A84C" opacity="0.5"/>
+          <!-- Candles -->
+          <rect x="295" y="280" width="10" height="30" rx="2" fill="#FAF6EC"/>
+          <ellipse cx="300" cy="278" rx="5" ry="8" fill="rgba(201,168,76,0.8)"/>
+          <!-- Lantern glow -->
+          <circle cx="300" cy="150" r="60" fill="rgba(201,168,76,0.06)"/>
+          <polygon points="300,100 310,140 350,150 310,160 300,200 290,160 250,150 290,140" fill="rgba(201,168,76,0.15)"/>
+          <!-- Text overlay -->
+          <text x="300" y="70" text-anchor="middle" font-family="'Noto Naskh Arabic'" font-size="36" fill="rgba(201,168,76,0.3)" direction="rtl">الواحة</text>
+        </svg>
+      </div>
+      <div class="gallery-overlay"><span class="gallery-plus">+</span></div>
+    </div>
+
+    <!-- Item 2 -->
+    <div class="gallery-item">
+      <div class="gallery-item-inner">
+        <svg width="100%" height="100%" viewBox="0 0 300 250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <rect width="300" height="250" fill="#C9B070"/>
+          <ellipse cx="150" cy="130" rx="90" ry="70" fill="#D4C090"/>
+          <ellipse cx="150" cy="130" rx="65" ry="50" fill="#8B6914" opacity="0.5"/>
+          <!-- Food dish -->
+          <ellipse cx="150" cy="145" rx="60" ry="45" fill="#5C4225"/>
+          <ellipse cx="150" cy="142" rx="52" ry="38" fill="#9B7E5A"/>
+          <!-- garnish -->
+          <circle cx="150" cy="130" r="12" fill="#4A7C25"/>
+          <circle cx="132" cy="138" r="8" fill="#4A7C25" opacity="0.7"/>
+          <circle cx="168" cy="138" r="8" fill="#4A7C25" opacity="0.7"/>
+          <text x="150" y="220" text-anchor="middle" font-family="serif" font-size="14" fill="rgba(42,31,14,0.4)" letter-spacing="3">MEZZE</text>
+        </svg>
+      </div>
+      <div class="gallery-overlay"><span class="gallery-plus">+</span></div>
+    </div>
+
+    <!-- Item 3 -->
+    <div class="gallery-item">
+      <div class="gallery-item-inner">
+        <svg width="100%" height="100%" viewBox="0 0 300 250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <rect width="300" height="250" fill="#1A0F05"/>
+          <!-- Geometric Arabic pattern -->
+          <g stroke="rgba(201,168,76,0.25)" stroke-width="0.8" fill="none">
+            <polygon points="150,30 180,60 150,90 120,60"/>
+            <polygon points="150,90 180,120 150,150 120,120"/>
+            <polygon points="150,150 180,180 150,210 120,180"/>
+            <polygon points="90,60 120,30 120,90 60,90"/>
+            <polygon points="210,60 240,30 240,90 180,90"/>
+          </g>
+          <!-- Lantern -->
+          <rect x="130" y="80" width="40" height="60" rx="4" fill="rgba(201,168,76,0.15)" stroke="rgba(201,168,76,0.4)" stroke-width="1"/>
+          <ellipse cx="150" cy="120" rx="15" ry="20" fill="rgba(201,168,76,0.3)"/>
+          <circle cx="150" cy="120" r="8" fill="rgba(201,168,76,0.6)"/>
+          <text x="150" y="200" text-anchor="middle" font-family="serif" font-size="12" fill="rgba(201,168,76,0.5)" letter-spacing="3">AMBIANCE</text>
+        </svg>
+      </div>
+      <div class="gallery-overlay"><span class="gallery-plus">+</span></div>
+    </div>
+
+    <!-- Item 4 -->
+    <div class="gallery-item">
+      <div class="gallery-item-inner">
+        <svg width="100%" height="100%" viewBox="0 0 300 250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <rect width="300" height="250" fill="#3D2B1A"/>
+          <!-- Grill scene -->
+          <rect x="80" y="120" width="140" height="20" rx="2" fill="#2A1F0E"/>
+          <line x1="100" y1="120" x2="100" y2="140" stroke="#5C4225" stroke-width="3"/>
+          <line x1="120" y1="120" x2="120" y2="140" stroke="#5C4225" stroke-width="3"/>
+          <line x1="140" y1="120" x2="140" y2="140" stroke="#5C4225" stroke-width="3"/>
+          <line x1="160" y1="120" x2="160" y2="140" stroke="#5C4225" stroke-width="3"/>
+          <line x1="180" y1="120" x2="180" y2="140" stroke="#5C4225" stroke-width="3"/>
+          <line x1="200" y1="120" x2="200" y2="140" stroke="#5C4225" stroke-width="3"/>
+          <!-- Skewers -->
+          <line x1="70" y1="100" x2="230" y2="100" stroke="rgba(107,74,42,0.8)" stroke-width="3"/>
+          <ellipse cx="110" cy="100" rx="14" ry="10" fill="#8B6914"/>
+          <ellipse cx="140" cy="100" rx="14" ry="10" fill="#6B4A2A"/>
+          <ellipse cx="170" cy="100" rx="14" ry="10" fill="#8B6914"/>
+          <ellipse cx="200" cy="100" rx="14" ry="10" fill="#6B4A2A"/>
+          <!-- smoke -->
+          <path d="M150 85 Q145 70 152 55 Q147 40 155 30" stroke="rgba(245,232,192,0.15)" stroke-width="2" fill="none"/>
+          <text x="150" y="200" text-anchor="middle" font-family="serif" font-size="12" fill="rgba(201,168,76,0.5)" letter-spacing="3">GRILLS</text>
+        </svg>
+      </div>
+      <div class="gallery-overlay"><span class="gallery-plus">+</span></div>
+    </div>
+
+    <!-- Item 5 -->
+    <div class="gallery-item">
+      <div class="gallery-item-inner">
+        <svg width="100%" height="100%" viewBox="0 0 300 250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <rect width="300" height="250" fill="#E8C97A" opacity="0.8"/>
+          <rect width="300" height="250" fill="#2A1F0E" opacity="0.5"/>
+          <!-- Arabic arch window -->
+          <path d="M80 250 L80 120 Q80 60 150 60 Q220 60 220 120 L220 250 Z" fill="rgba(201,168,76,0.1)" stroke="rgba(201,168,76,0.4)" stroke-width="1.5"/>
+          <!-- Palm silhouette inside arch -->
+          <line x1="150" y1="250" x2="148" y2="160" stroke="rgba(45,80,22,0.8)" stroke-width="7" stroke-linecap="round"/>
+          <ellipse cx="132" cy="160" rx="20" ry="5" fill="rgba(74,124,37,0.7)" transform="rotate(10 132 160)"/>
+          <ellipse cx="167" cy="158" rx="20" ry="5" fill="rgba(74,124,37,0.7)" transform="rotate(-10 167 158)"/>
+          <ellipse cx="148" cy="155" rx="15" ry="5" fill="rgba(45,80,22,0.8)" transform="rotate(-5 148 155)"/>
+          <text x="150" y="220" text-anchor="middle" font-family="serif" font-size="12" fill="rgba(245,232,192,0.6)" letter-spacing="3">GARDEN</text>
+        </svg>
+      </div>
+      <div class="gallery-overlay"><span class="gallery-plus">+</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVATIONS -->
+<section id="reservations">
+  <div class="section-label reveal" style="position:relative;z-index:1;">Book Your Table</div>
+  <h2 class="section-title reveal" style="position:relative;z-index:1;">Reservations</h2>
+  <p class="section-title-ar reveal" style="position:relative;z-index:1;">حجز طاولة</p>
+  <div class="section-divider reveal" style="position:relative;z-index:1;">
+    <div class="section-divider-line" style="background:linear-gradient(90deg,transparent,rgba(201,168,76,0.4),transparent)"></div>
+    <div class="ornament-diamond" style="border-color:rgba(201,168,76,0.4);background:rgba(201,168,76,0.08)"></div>
+    <div class="section-divider-line" style="background:linear-gradient(90deg,transparent,rgba(201,168,76,0.4),transparent)"></div>
+  </div>
+
+  <div class="reservation-wrapper reveal">
+    <form id="reservationForm" onsubmit="submitReservation(event)">
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" placeholder="Your full name" required>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="+44 7700 000000">
+        </div>
+        <div class="form-group">
+          <label>Number of Guests</label>
+          <select required>
+            <option value="">Select guests</option>
+            <option>1 Guest</option>
+            <option>2 Guests</option>
+            <option>3 Guests</option>
+            <option>4 Guests</option>
+            <option>5–6 Guests</option>
+            <option>7–10 Guests</option>
+            <option>Large Group (10+)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Preferred Date</label>
+          <input type="date" required>
+        </div>
+        <div class="form-group">
+          <label>Preferred Time</label>
+          <select required>
+            <option value="">Select time</option>
+            <option>12:00 PM</option>
+            <option>12:30 PM</option>
+            <option>1:00 PM</option>
+            <option>1:30 PM</option>
+            <option>2:00 PM</option>
+            <option>6:00 PM</option>
+            <option>6:30 PM</option>
+            <option>7:00 PM</option>
+            <option>7:30 PM</option>
+            <option>8:00 PM</option>
+            <option>8:30 PM</option>
+            <option>9:00 PM</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label>Special Requests or Dietary Requirements</label>
+          <textarea placeholder="Allergies, special occasions, seating preferences…"></textarea>
+        </div>
+      </div>
+      <button type="submit" class="form-submit">Confirm Reservation</button>
+    </form>
+    <div class="success-message" id="successMsg">
+      ✦ Thank you. Your reservation request has been received. We will confirm your table by email within 24 hours. ✦
+    </div>
+    <p class="form-note">For same-day bookings or large groups, please call us directly on +44 20 7000 1234</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label reveal">Find Us</div>
+  <h2 class="section-title reveal">Contact & Location</h2>
+  <p class="section-title-ar reveal">تواصل معنا</p>
+  <div class="section-divider reveal">
+    <div class="section-divider-line"></div>
+    <div class="ornament-diamond"></div>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <div class="contact-grid reveal">
+    <div class="contact-card">
+      <div class="contact-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7zm0 9a2 2 0 100-4 2 2 0 000 4z"/></svg>
+      </div>
+      <h3>Address</h3>
+      <p>14 Golden Lane<br>Mayfair, London<br>W1K 4AB</p>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012.86 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.64a16 16 0 006.29 6.29l1.01-.99a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      </div>
+      <h3>Telephone</h3>
+      <p>+44 20 7000 1234<br><br>Open Daily<br>12:00 PM – 11:00 PM</p>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <h3>Email</h3>
+      <p>hello@al-waha.co.uk<br>reservations@al-waha.co.uk<br><br>events@al-waha.co.uk</p>
+    </div>
+  </div>
+
+  <!-- Map placeholder -->
+  <div class="reveal" style="max-width:1100px;margin:3rem auto 0;border:1px solid rgba(201,168,76,0.2);overflow:hidden;">
+    <svg width="100%" viewBox="0 0 1100 300" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1100" height="300" fill="#F5E8C0"/>
+      <!-- Map grid streets -->
+      <line x1="0" y1="100" x2="1100" y2="100" stroke="rgba(201,168,76,0.3)" stroke-width="2"/>
+      <line x1="0" y1="200" x2="1100" y2="200" stroke="rgba(201,168,76,0.3)" stroke-width="2"/>
+      <line x1="200" y1="0" x2="200" y2="300" stroke="rgba(201,168,76,0.3)" stroke-width="2"/>
+      <line x1="450" y1="0" x2="450" y2="300" stroke="rgba(201,168,76,0.3)" stroke-width="2"/>
+      <line x1="700" y1="0" x2="700" y2="300" stroke="rgba(201,168,76,0.3)" stroke-width="2"/>
+      <line x1="900" y1="0" x2="900" y2="300" stroke="rgba(201,168,76,0.3)" stroke-width="2"/>
+      <!-- Park blocks -->
+      <rect x="250" y="110" width="180" height="80" rx="4" fill="rgba(74,124,37,0.15)"/>
+      <rect x="510" y="30" width="170" height="60" rx="4" fill="rgba(74,124,37,0.12)"/>
+      <!-- Street labels -->
+      <text x="60" y="92" font-size="10" fill="rgba(107,74,42,0.5)" font-family="sans-serif">Oxford Street</text>
+      <text x="60" y="192" font-size="10" fill="rgba(107,74,42,0.5)" font-family="sans-serif">Piccadilly</text>
+      <text x="202" y="50" font-size="10" fill="rgba(107,74,42,0.5)" font-family="sans-serif" writing-mode="tb">Bond St</text>
+      <text x="702" y="50" font-size="10" fill="rgba(107,74,42,0.5)" font-family="sans-serif" writing-mode="tb">Park Lane</text>
+      <!-- Location pin -->
+      <circle cx="550" cy="150" r="20" fill="rgba(201,168,76,0.25)"/>
+      <circle cx="550" cy="150" r="12" fill="var(--gold, #C9A84C)"/>
+      <circle cx="550" cy="150" r="5" fill="white"/>
+      <text x="550" y="185" text-anchor="middle" font-size="12" fill="#8B6914" font-family="serif" font-weight="600">Al-Waha | الواحة</text>
+      <text x="550" y="200" text-anchor="middle" font-size="10" fill="#9B7E5A" font-family="sans-serif">14 Golden Lane, Mayfair</text>
+    </svg>
+  </div>
+</section>
+
+<!-- SOCIAL / INSTAGRAM -->
+<div class="social-strip">
+  <p class="social-label">Follow Our Journey — @AlWahaLondon</p>
+  <div class="instagram-grid reveal">
+    <div class="insta-item"><svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="#C9B070"/><circle cx="50" cy="50" r="30" fill="rgba(42,31,14,0.3)"/></svg></div>
+    <div class="insta-item"><svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="#3D2B1A"/><ellipse cx="50" cy="60" rx="35" ry="20" fill="rgba(201,168,76,0.2)"/></svg></div>
+    <div class="insta-item"><svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="#E8D9B0"/><text x="50" y="60" text-anchor="middle" font-family="serif" font-size="24" fill="rgba(42,31,14,0.3)">الواحة</text></svg></div>
+    <div class="insta-item"><svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="#5C4225"/><circle cx="50" cy="50" r="20" fill="rgba(201,168,76,0.25)"/></svg></div>
+    <div class="insta-item"><svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="#2A1F0E"/><polygon points="50,20 60,45 85,45 65,60 73,85 50,70 27,85 35,60 15,45 40,45" fill="rgba(201,168,76,0.2)"/></svg></div>
+    <div class="insta-item"><svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="#8B6914" opacity="0.6"/><rect width="100" height="100" fill="#1A0F05" opacity="0.5"/><circle cx="50" cy="50" r="25" fill="none" stroke="rgba(201,168,76,0.4)" stroke-width="1"/></svg></div>
+  </div>
+  <div class="social-links" style="margin-top:2rem;">
+    <a href="#" class="social-link">
+      <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    </a>
+    <a href="#" class="social-link">
+      <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+    </a>
+    <a href="#" class="social-link">
+      <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+    </a>
+    <a href="#" class="social-link">
+      <svg viewBox="0 0 24 24"><path d="M21 2H3v16h5v4l4-4h5l4-4V2zM11 11H9V9h2v2zm4 0h-2V9h2v2z"/></svg>
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Al-Waha</div>
+      <div class="footer-brand-ar">الواحة</div>
+      <p class="footer-desc">An oasis of authentic Levantine flavour in the heart of London. We welcome you with warmth, generosity and the finest cuisine of the Arab world.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">Our Story</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#reservations">Reservations</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Opening Hours</h4>
+      <ul>
+        <li>Monday – Friday</li>
+        <li>12:00 PM – 11:00 PM</li>
+        <li style="margin-top:0.5rem;">Saturday – Sunday</li>
+        <li>11:00 AM – 11:30 PM</li>
+        <li style="margin-top:0.5rem; color:rgba(201,168,76,0.6)">Private events available</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Al-Waha Restaurant. All rights reserved.</span>
+    <span>Privacy Policy · Terms & Conditions</span>
+  </div>
+</footer>
+
+<script>
+  // Scroll nav effect
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    if (window.scrollY > 60) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+
+  // Mobile menu
+  function toggleMenu() {
+    const nav = document.getElementById('mobileNav');
+    nav.classList.toggle('open');
+  }
+
+  // Menu tabs
+  function showMenu(category, btn) {
+    document.querySelectorAll('.menu-grid').forEach(g => g.classList.remove('active'));
+    document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('menu-' + category).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // Form submission
+  function submitReservation(e) {
+    e.preventDefault();
+    const form = document.getElementById('reservationForm');
+    const msg = document.getElementById('successMsg');
+    form.style.display = 'none';
+    msg.style.display = 'block';
+    // Scroll to message
+    msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  // Stars generation
+  function createStars() {
+    const container = document.getElementById('stars');
+    if (!container) return;
+    for (let i = 0; i < 80; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.animationDelay = Math.random() * 4 + 's';
+      star.style.animationDuration = (2 + Math.random() * 3) + 's';
+      const size = Math.random() > 0.7 ? '3px' : '2px';
+      star.style.width = size;
+      star.style.height = size;
+      container.appendChild(star);
+    }
+  }
+
+  createStars();
+
+  // Scroll reveal
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+</script>
+</body>
+</html>
